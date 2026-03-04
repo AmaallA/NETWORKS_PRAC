@@ -3,12 +3,12 @@
 import socket
 import threading
 
-serverName = 'OurServer'
+serverAddres = "127.0.0.1"  # Localhost
 serverPort = 1500
 
 def connect_client():
     clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    clientSocket.connect((serverName, serverPort))
+    clientSocket.connect((serverAddres, serverPort))
 
     threading.Thread(target=receive_message, args=(clientSocket,)).start()
 
